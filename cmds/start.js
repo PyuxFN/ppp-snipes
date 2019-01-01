@@ -80,7 +80,7 @@ module.exports.run = async (bot, message, args) => {
         console.log(`Collected ${m.content} | ${m.author.username}`);
         
         if (validation(allowedRoles.roles,m.member.roles.array())){
-            if (m.content === "!start"){
+            if (m.content === "!start" || m.content === "!stop"){
                 collector.stop();
                 console.log("Collector stoped");
                 return;
@@ -135,8 +135,13 @@ module.exports.run = async (bot, message, args) => {
 
     collector.on('end', collected => {
         console.log(`Collected ${collected.size} items`);
+        let endEmbed = new Discord.RichEmbed()
+        .setTitle("No more codes are accepted at this point.")
+        .setDescription("GLHF").setColor("#ff0000");
+
+        message.channel.send({embed: endEmbed});
     });
-        
+    
 
 }
 
