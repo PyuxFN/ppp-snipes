@@ -1,4 +1,6 @@
 const ytdl = require('ytdl-core');
+const ffmpegPath = require('ffmpeg-binaries');
+spawn(ffmpegPath, ['-i', 'video.mkv', 'video.mp4']);
 
 module.exports.run = async (bot, message, args) => {
 
