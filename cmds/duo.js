@@ -6,7 +6,7 @@ module.exports.run = async (bot,message,args) => {
     .setTitle("Duos match starting now!")
     .setDescription("How To Play: Make sure your content is loaded. Make sure all of the members in your party are readied up. Go on the G of GO.")
     .setColor("#8600b3");
-    
+    message.channel.send({embed: em});
 }
 
 module.exports.help = {
